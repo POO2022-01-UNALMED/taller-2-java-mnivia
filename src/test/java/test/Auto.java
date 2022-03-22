@@ -1,6 +1,6 @@
 package test;
 public class Auto {
-	
+	//Atributos
 	String modelo;
 	int precio;
 	Asiento[] asientos;
