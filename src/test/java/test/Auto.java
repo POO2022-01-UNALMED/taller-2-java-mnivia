@@ -1,4 +1,3 @@
-
 package test;
 public class Auto {
 	
@@ -27,42 +26,37 @@ public class Auto {
 	
 	String verificarIntegridad() {
 				
-		boolean original=true;
+
 		int ultmres=0;
+		int i=0;
+		int j=1;
 		
-		for (int i = 0; i < this.asientos.length -1; i++) {
+		while(j!=this.asientos.length) {
 			
-			Asiento asiento1=new Asiento();
-			Asiento asiento2=new Asiento();
-			
-			asiento1=this.asientos[i];
-			asiento2=this.asientos[i+1];
-			
-			if(asiento1.registro!=asiento2.registro) {
-				original =false;				
-				break;
+			if(asientos[j]==null) {
+				j+=1;
 			}
-			
-			ultmres=asiento1.registro;
-			
+			else {
+				if(asientos[j].registro != asientos[i].registro) {
+					return("Las piezas no son  originales");					
+				}
+				else {
+					i=j;
+					j+=1;
+				}
+			}
 		}
 		
-		if(!original) {
-			
-			return("Las piezas no son  originales");
-				
-		}
+		ultmres=asientos[i].registro;
 		
 		if((this.registro == this.motor.registro) && (this.motor.registro== ultmres) ) {
 			
 			return "Auto original";
 			
 		}
+				
 		
-		
-		
-		return "Las piezas no son  originales";
-		
+		return "Las piezas no son  originales";	
 		
 	}
 		
