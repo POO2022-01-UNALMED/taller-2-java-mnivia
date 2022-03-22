@@ -27,37 +27,17 @@ public class Auto {
 	String verificarIntegridad() {
 				
 
-		int ultmres=0;
-		int i=0;
-		int j=1;
+		if (motor.registro != registro) {
+			return "Las piezas no son originales";
+		}
 		
-		while(j!=this.asientos.length) {
-			
-			if(asientos[j]==null) {
-				j+=1;
-			}
-			else {
-				if(asientos[j].registro != asientos[i].registro) {
-					return("Las piezas no son  originales");					
-				}
-				else {
-					i=j;
-					j+=1;
-				}
+		for (int i = 0; i < asientos.length; i++) {
+			if (asientos[i] != null && asientos[i].registro != registro){
+				return "Las piezas no son originales";
 			}
 		}
 		
-		ultmres=asientos[i].registro;
-		
-		if((this.registro == this.motor.registro) && (this.motor.registro== ultmres) ) {
-			
-			return "Auto original";
-			
-		}
-				
-		
-		return "Las piezas no son  originales";	
-		
+		return "Auto original";
 	}
 		
 				
